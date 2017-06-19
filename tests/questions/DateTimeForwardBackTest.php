@@ -77,22 +77,11 @@ class DateTimeForwardBackTest extends \PHPUnit_Framework_TestCase
         list($question, $group, $sgqa) = self::$testHelper->getSgqa('G1Q00001', self::$surveyId);
         $surveyMode = 'group';
         $LEMdebugLevel = 0;
-        $survey = \Survey::model()->findByPk(self::$surveyId);
 
-        $survey->anonymized = '';
-        $survey->datestamp = '';
-        $survey->ipaddr = '';
-        $survey->refurl = '';
-        $survey->savetimings = '';
-        $survey->save();
-        \Survey::model()->resetCache();  // Make sure the saved values will be picked up
-
-        $result = \activateSurvey(self::$surveyId);
+        self::$testHelper->activateSurvey(self::$surveyId);
 
         // Must fetch this AFTER survey is activated.
         $surveyOptions = self::$testHelper->getSurveyOptions(self::$surveyId);
-
-        $this->assertEquals(['status' => 'OK'], $result, 'Activate survey is OK');
 
         \Yii::app()->setConfig('surveyID', self::$surveyId);
         \Yii::app()->setController(new \CController('dummyid'));
@@ -145,15 +134,6 @@ class DateTimeForwardBackTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(false, strpos($qanda[0][1], "val('11:00')"), 'No 11:00 value from qanda');
         $this->assertNotEquals(false, strpos($qanda[0][1], "val('10:00')"), 'One 10:00 value from qanda');
 
-        $surveyId = self::$surveyId;
-        $date     = date('YmdHis');
-
-        // Deactivate survey.
-        $oldSurveyTableName = \Yii::app()->db->tablePrefix."survey_{$surveyId}";
-        $newSurveyTableName = \Yii::app()->db->tablePrefix."old_survey_{$surveyId}_{$date}";
-        \Yii::app()->db->createCommand()->renameTable($oldSurveyTableName, $newSurveyTableName);
-        $survey = \Survey::model()->findByPk($surveyId);
-        $survey->active = 'N';
-        $survey->save();
+        self::$testHelper->deactivateSurvey(self::$surveyId);
     }
 }
