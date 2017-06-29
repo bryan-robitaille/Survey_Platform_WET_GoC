@@ -1,0 +1,80 @@
+<!-- startpage.pstl -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{SURVEYNAME}</title>
+<meta name="generator" content="LimeSurvey https://www.limesurvey.org" />
+
+<!-- The following line includes jquery-ui.css or jquery-ui-custom.css from template dir, template.css and needed specific css file for survey -->
+{TEMPLATECSS}
+
+<!-- The following line includes jquery.js, jquery-ui.js, survey_runtime.js , template.js and needed specific js file for survey -->
+{TEMPLATEJS}
+<link rel="shortcut icon" href="{TEMPLATEURL}favicon.ico" />
+<link href="{TEMPLATEURL}favicon.ico" rel="icon" type="image/x-icon">
+{GOOGLE_ANALYTICS_JAVASCRIPT}
+</head>
+<body class="lang-{SURVEYLANGUAGE} {SURVEYFORMAT}">
+
+<header role="banner">
+    <div id="wb-bnr">
+        <div id="wb-bar">
+            <div class="container">
+                <div class="row">
+                    <object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" data="{TEMPLATEURL}files/sig-en.svg" aria-label="Government of Canada"></object>
+                    <ul id="gc-bar" class="list-inline">
+                        <li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
+                        <li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
+                        <li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
+                       </ul>
+              
+            </div>
+        </div>
+    </div>
+        
+
+                    
+    <div class="container">
+        <div class="row">
+           <div id="wb-sttl" class="col-md-5">
+    					<a href="/"> <span>{SURVEYNAME}</span>
+						</a>
+			</div>
+               
+            <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="{TEMPLATEURL}files/wmms.svg" aria-label="Symbol of the Government of Canada"></object>
+            
+        </div>
+    </div>
+</div>
+
+<nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+    		<div class="container nvbar">
+				<h2>Navigation and Menu Bar</h2>
+				<div class="row">
+					<ul class="list-inline menu">
+					  {SAVE_LINKS}
+                      {CLEARALL_LINKS}
+                      {QUESTION_INDEX_MENU}
+				    </ul>
+					<ul class="list-inline menu pull-right">
+					{LANGUAGECHANGER}
+                    </ul>
+				</div>
+			</div><!--/.nav-collapse -->
+		</nav>
+</header>
+
+    <div id="topcontainer" class="container">
+    {PERCENTCOMPLETE}
+</div>
+
+
+    <div class="outerframe container" id="outerframeContainer">
+
+        <div class="row" id="main-row">
+
+            <div class='col-xs-12' id="yii-flash-message">
+                {FLASHMESSAGE}
+            </div>
+
+            <div class="col-sm-12 col-centered" id="main-col">
+<!-- end of startpage.pstl -->

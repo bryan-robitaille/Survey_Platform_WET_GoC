@@ -254,6 +254,7 @@ class TemplateConfiguration extends CFormModel
         return in_array($this->sTemplateName,
             array(
                 'default',
+            	'GoC_Web_Experience',
                 'news_paper',
                 'ubuntu_orange',
             )
