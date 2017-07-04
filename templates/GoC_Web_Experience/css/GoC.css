@@ -1,4 +1,8 @@
 /*From original flat_and_modern.css */
+/*Language Bar */
+.language{
+	color: #ffffff;
+}
 
 /**
  * Question design
@@ -7730,7 +7734,7 @@ body.wb-modal .modal-dialog summary {
     text-align: center; }
   .wb-mltmd.video:not(.playing):not(.waiting) .display:after {
     color: #fff;
-    content: "";
+    content: "X";
     font-family: "Glyphicons Halflings";
     font-size: 65px;
     text-align: center; }

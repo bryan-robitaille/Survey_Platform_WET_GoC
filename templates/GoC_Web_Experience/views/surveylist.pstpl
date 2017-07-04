@@ -2,6 +2,7 @@
 {CHECKJAVASCRIPT}
 
 <div class="row" id="surveys-list-container">
+    <!--
     <div class="jumbotron" id="surveys-list-jumbotron">
         <p class="text-center">
             {SITELOGO}
@@ -10,7 +11,7 @@
             {SITENAME}
         </p>
     </div>
-
+	-->
 
     <div class="col-xs-12 site-name">
 
