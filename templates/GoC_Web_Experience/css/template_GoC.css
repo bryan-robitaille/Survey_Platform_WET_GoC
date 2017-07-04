@@ -893,21 +893,14 @@ body div.row .question-container {
     margin-bottom: 2em;
 }
 
-.answer-container, .question-help-container
-{
-    border-style: solid;
-}
-
 .answer-container
 {
-    border-width: 0px 1px 0px 1px;
     padding-top: 2em;
     background-color: white;
 }
 
 .question-help-container
 {
-    border-width: 0px 1px 1px 1px;
     padding-bottom: 5px;
 }
 
@@ -916,7 +909,7 @@ body div.row .question-container {
 
 .question-title-container {
     color: white;
-    padding: 1em 1em 1em 1em;
+    padding-bottom: 1em;
 }
 
 .questionvalidcontainer {

@@ -31,7 +31,7 @@
             <filename>css/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</filename>
             <filename>css/GoC.css</filename>
 
-            <filename>css/template.css</filename>
+            <filename>css/template_GoC.css</filename>
         </css>
         <js>
             <filename>scripts/template.js</filename>
@@ -79,7 +79,7 @@
     <files_editable>
             <css>
                 <filename>css/GoC.css</filename>
-                <filename>css/template.css</filename>
+                <filename>css/template_GoC.css</filename>
             </css>
             <js>
                 <filename>scripts/template.js</filename>

@@ -1,5 +1,5 @@
 /*Language Bar */
-language{
+.language{
 	color: #ffffff;
 }
 
@@ -14,9 +14,12 @@ language{
  }
 
 
- /** Header **/
- .question-title-container, .questionvalidcontainer {
+ .question-title-container {
      background-color: #2572b4;
+ }
+ 
+ .questionvalidcontainer{
+ background-color: #fffff;
  }
 
 
