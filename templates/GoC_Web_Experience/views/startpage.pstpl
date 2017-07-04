@@ -20,7 +20,7 @@
         <div id="wb-bar">
             <div class="container">
                 <div class="row">
-                    <object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" data="{../files/sig-en.svg" aria-label="Government of Canada"></object>
+                    <object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" data="{TEMPLATEURL}files/sig-en.svg" aria-label="Government of Canada"></object>
                     <ul id="gc-bar" class="list-inline">
                         <li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
                         <li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
@@ -40,7 +40,7 @@
 						</a>
 			</div>
                
-            <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="../files/wmms.svg" aria-label="Symbol of the Government of Canada"></object>
+            <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="{TEMPLATEURL}files/wmms.svg" aria-label="Symbol of the Government of Canada"></object>
             
         </div>
     </div>

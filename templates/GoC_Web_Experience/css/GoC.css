@@ -10006,7 +10006,7 @@ details {
     background: #0f315b;
     color: #fff; }
   body {
-    background-image: url("/upload/templates/GoC_WET/files/header-leaf.jpg"), url("/upload/templates/GoC_WET/files/header-bg.jpg");
+    background-image: url("/templates/GoC_Web_Experience/files/header-leaf.jpg"), url("/templates/GoC_Web_Experience/files/header-bg.jpg");
     background-position: center 2.7em;
     background-repeat: no-repeat, repeat-x; }
   #gcwu-sig {
