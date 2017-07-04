@@ -974,11 +974,6 @@ body div.row .question-container {
     width: 300px;
 }
 
-/*label font weight*/
-label {
-    font-weight: normal;
-}
-
 #surveys-list-container
 {
     margin-top: 50px;
