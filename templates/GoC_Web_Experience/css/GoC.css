@@ -5,6 +5,9 @@
 .linkToButton{
 	background-color:#59a0d0;
 }
+.linkToButton:hover{
+	color:#2572b4;
+}
 #topcontainer{
 	padding-top: 1em;
 	background-color:transparent;
@@ -2928,10 +2931,11 @@ tbody.collapse.in {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
-  background-color: #f5f5f5; }
+  background-color: rgb(20, 96, 148);
+   }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  color: #fff;
+  color: #262626;
   text-decoration: none;
   outline: 0;
   background-color: #2572b4; }
