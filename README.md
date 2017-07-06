@@ -1,4 +1,4 @@
-# Sophisticated online survey software
+# Web Experience Tookit - Survey Platform
 
 ## About
 WET4-Survey is a survey platform project (powered by Lime Survey) that is skinned for the Government of Canada using the Web Experience Toolkit v4 from TBS.
