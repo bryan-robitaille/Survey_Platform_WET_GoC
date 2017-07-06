@@ -895,7 +895,7 @@ body div.row .question-container {
 
 .answer-container
 {
-    padding-top: 2em;
+    padding-top: 1em;
     background-color: white;
 }
 
@@ -909,7 +909,6 @@ body div.row .question-container {
 
 .question-title-container {
     color: white;
-    padding-bottom: 1em;
 }
 
 .questionvalidcontainer {

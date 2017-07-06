@@ -23,8 +23,12 @@
     class="form-control textarea <?php echo $kpclass; ?>"
     name="<?php echo $name; ?>"
     id="answer<?php echo $name; ?>"
+    <?php 
+    /**
     rows="<?php echo $drows; ?>"
     cols="<?php echo $tiwidth; ?>"
+    */
+    ?>
     <?php echo $maxlength; ?>
     onkeyup="<?php echo $checkconditionFunction;?>"
 >

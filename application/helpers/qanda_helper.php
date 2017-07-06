@@ -2638,7 +2638,7 @@ function do_multipleshorttext($ia)
     }
 
     $sInputContainerWidth = (trim($aQuestionAttributes['text_input_columns'])!='')?$aQuestionAttributes['text_input_columns']:'6';
-    $sLabelWidth          = (trim($aQuestionAttributes['label_input_columns'])!='')?$aQuestionAttributes['label_input_columns']:'6';
+    $sLabelWidth          = (trim($aQuestionAttributes['label_input_columns'])!='')?$aQuestionAttributes['label_input_columns']:'2';
 
     if (trim($aQuestionAttributes['prefix'][$_SESSION['survey_'.Yii::app()->getConfig('surveyID')]['s_lang']])!='')
     {

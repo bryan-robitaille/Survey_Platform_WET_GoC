@@ -5700,7 +5700,7 @@ blockquote {
  */
 .form-control {
   max-width: 100%;
-  width: auto; }
+ }
 
 /*
  *	Fieldset/legend border position
