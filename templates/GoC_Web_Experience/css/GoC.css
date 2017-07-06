@@ -5,6 +5,11 @@
 .linkToButton{
 	background-color:#59a0d0;
 }
+#topcontainer{
+	padding-top: 1em;
+	background-color:transparent;
+	border-color:transparent;
+}
 
 
 /**
