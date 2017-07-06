@@ -37,7 +37,7 @@
  }
 
  .questionvalidcontainer .text-info{
-     color: #B9CC14;
+     font-weight: bold;
  }
 
  /* Arrow */
@@ -1229,7 +1229,6 @@ ol {
     margin-bottom: 0; }
 
 .list-unstyled {
-  padding-left: 0;
   list-style: none; }
 
 .list-inline {
