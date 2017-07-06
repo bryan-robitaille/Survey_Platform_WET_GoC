@@ -895,7 +895,7 @@ body div.row .question-container {
 
 .answer-container
 {
-    padding-top: 2em;
+    padding-top: 5px;
     background-color: white;
 }
 
@@ -909,23 +909,20 @@ body div.row .question-container {
 
 .question-title-container {
     color: white;
-    padding-bottom: 1em;
+    padding-bottom:5px;
 }
 
 .questionvalidcontainer {
     position: relative;
-    text-align: center;
-    padding-bottom: 1em;
+    text-align: left;
+    padding-bottom: 5px;
 }
 
 .questionvalidcontainer .text-danger{
     font-weight: bold;
 }
 
-.questionvalidcontainer .text-info{
-    color: #B9CC14;
-    font-weight: bold;
-}
+
 
 /* Arrow */
 /* Will confuse survey takers?

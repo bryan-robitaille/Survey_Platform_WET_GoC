@@ -107,9 +107,7 @@ $(document).ready(function()
         }
     }
 
-    $('#outerframeContainer').css({marginTop:outerframeDistanceFromTop+'px'});
-
-    $('.language-changer').each(function(){
+   $('.language-changer').each(function(){
         $that = $(this);
         if(!$.trim($that.children('div').html()))
         {

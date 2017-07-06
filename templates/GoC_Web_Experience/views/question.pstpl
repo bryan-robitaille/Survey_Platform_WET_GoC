@@ -29,10 +29,10 @@
         </div>
 
         <!-- Answer -->
-        <div class="row question-wrapper pull-left answer-container">
-            <div class="col-sm-12 answer">
-                {ANSWER}
-            </div>
+        <div class="row question-wrapper answer-container">
+            
+             {ANSWER}
+          
         </div>
 
        

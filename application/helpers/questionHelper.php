@@ -994,7 +994,7 @@ class questionHelper
         'category'=>gT('Display'),
         'sortorder'=>90,
         'inputtype'=>'singleselect',
-        'default'=>'6',
+        'default'=>'2',
         'options'=>array(
             1=>'8%',
             2=>'17%',
