@@ -28,18 +28,19 @@
 
 </div>
 
-<div id="surveyListFooter" class="well">
+<div id="surveyListFooter" class="visible-sm visible-md visible-lg wb-navcurr"><div id="gc-info">
+    <div id="wb-info">
+    <div id="gc-info">
     <div class="container">
-        <p>
-            <a href="https://www.limesurvey.org" target="_blank">
-                <img src="{TEMPLATEURL}poweredby.png" alt="LimeSurvey Survey Software" />
-                </a>
-                <br />
-                <a href="https://www.limesurvey.org" target="_blank">
-                Free Online Survey Software
-                </a>
-                - Free & Open Source
-                <br />
-        </p>
+        <nav role="navigation">
+				<h2>Government of Canada footer</h2>
+				<ul class="list-inline">
+					<li id="canada-ca"><a href="http://www.canada.ca/en/index.html">Canada.ca</a></li>
+				</ul>
+			</nav>
+    
+   </div>
+</div>
     </div>
+  </div>
 </div>
