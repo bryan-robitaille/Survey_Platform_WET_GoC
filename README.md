@@ -1,29 +1,15 @@
-![LimeSurvey Logo](https://www.limesurvey.org/images/logos/logo_main.png)
 # Sophisticated online survey software
 
 ## About
-Limesurvey is the number one open-source survey software.
-
-Advanced features like branching and multiple question types make it a valuable partner for survey-creation.
-
-### Demo
-
-See our [Administration Demo](http://demo.limesurvey.org/index.php?r=admin/authentication/sa/login).
-The credentials are prefilled, just click **Log in**
-
-Or try taking one of our [test surveys](https://survey.limesurvey.org/index.php?sid=78184&lang=en)
-
+WET4-Survey is a survey platform project (powered by Lime Survey) that is skinned for the Government of Canada using the Web Experience Toolkit v4 from TBS.
 
 ## How to install
 
 ### Release
-We try to publish a release every other day.
-We recommend using those.
+We try to tag all production ready releases.  We are still currently developing the project and no 1st release has been listed.
 
 ### Repository
-You may want to use the plain repository, which is also possible.
-
-Please be advised, that we sometimes push development versions into the repository, which may not be working correctly.
+Please use the master branch.  All releases will be tagged on Master.
 
 ## Requirements
 
@@ -42,9 +28,9 @@ We recommend the following setup
  - mysql 5.5.50
 
 ## Manual
-for more information please refer to our [homepage](http://www.limesurvey.org), or have a look at the [manual](http://manual.limesurvey.org) 
+for more information please refer Lime Survey's [homepage](http://www.limesurvey.org), or have a look at the [manual](http://manual.limesurvey.org).  Our project does not aim to add or remove functionality but only to rework layout. 
 
 ## Licence
-LimeSurvey software is licenced under the [GPL 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
+WET-4 Survey software is licenced under the [GPL 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
 
-Pictures and the LimeSurvey Logo are registered trademarks of LimeSurvey GmbH, Hamburg, Germany.
+
