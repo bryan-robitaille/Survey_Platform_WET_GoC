@@ -1,6 +1,9 @@
-/*Language Bar */
+/*Navigation Bar */
 .language{
 	color: #ffffff;
+}
+.linkToButton{
+	background-color:#59a0d0;
 }
 
 
@@ -238,7 +241,8 @@ legend {
   padding: 0; }
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 optgroup {
   font-weight: bold; }
@@ -2213,7 +2217,8 @@ output {
     opacity: 1; }
 
 textarea.form-control {
-  height: auto; }
+  height: auto;
+}
 
 input[type="search"] {
   -webkit-appearance: none; }
