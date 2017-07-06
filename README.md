@@ -28,7 +28,7 @@ We recommend the following setup
  - mysql 5.5.50
 
 ## Manual
-for more information please refer Lime Survey's [homepage](http://www.limesurvey.org), or have a look at the [manual](http://manual.limesurvey.org).  Our project does not aim to add or remove functionality but only to rework layout. 
+for more information please refer to Lime Survey's [homepage](http://www.limesurvey.org), or have a look at the [manual](http://manual.limesurvey.org).  Our project does not aim to add or remove functionality but only to rework layout. 
 
 ## Licence
 WET-4 Survey software is licenced under the [GPL 2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
