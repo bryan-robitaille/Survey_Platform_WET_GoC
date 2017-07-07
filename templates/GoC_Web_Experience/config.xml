@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Default configuration for the template.
-    In future versions of LimeSurvey, it will be used to fill a template table,
-    and to give user control on template configuration (like variables to use to render the questions, banners, background, etc.)
--->
 <config>
     <!-- Those metadatas will be display in the template configuration page. They are not used for now. -->
     <metadatas>
         <name>GoC_Web_Experience</name>
-        <creationDate>08/01/2016</creationDate>
-        <author>Louis-Sébastien Gac Artigas</author>
-        <authorEmail>louis.gac@limesurvey.org</authorEmail>
+        <creationDate>07/07/2017</creationDate>
+        <author>Bryan Robitaille</author>
+        <authorEmail>bryan.robitaille@canada.ca</authorEmail>
         <authorUrl>http://www.limesurvey.org</authorUrl>
-        <copyright>Copyright (C) 2005 - 2016 LimeSurvey Gmbh, Inc. All rights reserved.</copyright>
         <license>GNU General Public License version 2 or later</license>
         <version>1.0</version>
-        <description>Default LimeSurvey Template.</description>
-        <last_update>2017-06-29 17:11:08</last_update>
+        <description>Government of Canada themed Web Experience Tookit template</description>
+        <last_update>07/07/2017</last_update>
     </metadatas>
 
     <!--
@@ -65,10 +59,11 @@
             </print_css>
         </rtl>
 
-        <!-- The logo is used for now only for Surveys List  -->
+        <!-- The logo is used for now only for Surveys List 
         <logo>
             <filename>files/logo.png</filename>
         </logo>
+         -->
     </files>
 
     <!--
