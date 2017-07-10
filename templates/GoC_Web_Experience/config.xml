@@ -24,12 +24,12 @@
 
             <filename>css/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</filename>
             <filename>css/GoC.css</filename>
-
-            <filename>css/template_GoC.css</filename>
+		    <filename>css/template_GoC.css</filename>
         </css>
         <js>
             <filename>scripts/template.js</filename>
             <filename>scripts/bootstrap-slider.js</filename>
+            <filename>scripts/wet-boew.js</filename>
         </js>
         <print_css>
             <filename>css/print_template.css</filename>
@@ -53,6 +53,7 @@
             <js>
                 <filename>scripts/template.js</filename>
                 <filename>scripts/bootstrap-slider.js</filename>
+                <filename>scripts/wet-boew.js</filename>
             </js>
             <print_css>
                 <filename>css/print_template-rtl.css</filename>
@@ -79,6 +80,7 @@
             <js>
                 <filename>scripts/template.js</filename>
                 <filename>scripts/bootstrap-slider.js</filename>
+                 <filename>scripts/wet-boew.js</filename>
             </js>
     </files_editable>
 
