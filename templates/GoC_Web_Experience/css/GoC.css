@@ -9774,7 +9774,7 @@ details {
   #wb-dtmd {
     float: right; }
   #wb-info {
-    background: #efefef url("../assets/sft-deco.gif") repeat-x scroll center top; }
+    background: #efefef url("/templates/GoC_Web_Experience/files/sft-deco.gif") repeat-x scroll center top; }
     #wb-info a:link, #wb-info a:visited {
       text-decoration: none; }
     #wb-info a:hover, #wb-info a:focus {
