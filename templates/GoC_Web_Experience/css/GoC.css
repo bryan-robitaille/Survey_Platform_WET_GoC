@@ -10085,8 +10085,7 @@ details {
       background-image: -webkit-linear-gradient(#146094, #23447e);
       background-image: linear-gradient(#146094, #23447e);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr="#FF146094", endColorstr="#FF23447E");
-      border-bottom: 4px solid #ccc;
-      border-top: 1px solid #87aec9; }
+     
       #wb-sm .nvbar ul.menu {
         margin-bottom: 0; }
         #wb-sm .nvbar ul.menu > li {
