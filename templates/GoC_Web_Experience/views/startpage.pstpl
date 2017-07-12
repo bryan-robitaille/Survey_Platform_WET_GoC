@@ -30,6 +30,12 @@
 								rel="external">Services</a></li>
 							<li><a href="http://www.canada.ca/en/gov/dept/index.html"
 								rel="external">Departments</a></li>
+								<li id="wb-lng"><h2>Language selection</h2>
+									<ul class="list-inline">						
+     									 <li><a href="?lang=en_US" title="English - US (English)">EN</a></li>
+     									 <li><a href="?lang=fr" title="français, langue française (French)">FR</a></li>
+									</ul>
+								</li>
 						</ul>
 						<section class="wb-mb-links col-xs-12 visible-sm visible-xs"
 							id="wb-glb-mn">
@@ -69,7 +75,7 @@
 		</div>
 
 		<nav role="navigation" id="wb-sm" data-trgt="mb-pnl"
-			class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+			class="wb-menu visible-md visible-lg">
 			<div class="container nvbar">
 				<h2>Navigation and Menu Bar</h2>
 				<div class="row">
@@ -78,8 +84,7 @@
 						{CLEARALL_LINKS}
 						{QUESTION_INDEX_MENU}
 					</ul>
-					<ul class="list-inline menu pull-right">{LANGUAGECHANGER}
-					</ul>
+				
 				</div>
 			</div>
 			<!--/.nav-collapse -->
