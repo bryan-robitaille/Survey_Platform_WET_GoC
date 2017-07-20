@@ -1,6 +1,11 @@
 /*Navigation Bar */
 .language{
 	color: #ffffff;
+	
+}
+.testSite{
+	color:#ffffff;
+	font-size:200%;
 }
 .linkToButton{
 	background-color:#59a0d0;
