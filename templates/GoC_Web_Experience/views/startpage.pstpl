@@ -89,6 +89,7 @@
 			</div>
 			<!--/.nav-collapse -->
 		</nav>
+		<p class="testSite text-center"> Test Site Only - Not an official Government of Canada website </p>
 	</header>
 
 	<div id="topcontainer" class="container">{PERCENTCOMPLETE}</div>
