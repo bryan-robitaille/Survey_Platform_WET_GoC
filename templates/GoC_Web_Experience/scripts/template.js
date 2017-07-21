@@ -134,29 +134,6 @@ $(document).ready(function()
     });
 
 
-    // Load survey button
-    if ($('#loadallbtnlink').length > 0){
-        $('#loadallbtnlink').on('click', function()
-        {
-            $('#loadallbtn').trigger('click');
-        });
-    }
-
-    // Save survey button
-    if ($('#saveallbtnlink').length > 0){
-        $('#saveallbtnlink').on('click', function()
-        {
-            $('#saveallbtn').trigger('click');
-        });
-    }
-
-    // clearall
-    if ($('#clearallbtnlink').length > 0){
-        $('#clearallbtnlink').on('click', function()
-        {
-            $('#clearall').trigger('click');
-        });
-    }
 
     // Question index
     if($('.linkToButton').length > 0){
@@ -231,6 +208,21 @@ $(document).ready(function()
 
 });
 
+//Load survey button
+function loadAll()
+{
+	$('#loadallbtn').trigger('click');
+}
+
+function saveAll()
+{
+	$('#saveallbtn').trigger('click');
+}
+
+function clearAll()
+{
+	$('#clearall').trigger('click');
+}
 
 window.alert = function(message, title) {
     if($("#bootstrap-alert-box-modal").length == 0) {

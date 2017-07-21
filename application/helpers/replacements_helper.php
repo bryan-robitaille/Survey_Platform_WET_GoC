@@ -363,7 +363,7 @@ function templatereplace($line, $replacements = array(), &$redata = array(), $de
         $_clearall.=CHtml::checkBox("confirm-clearall",false,array('id'=>'confirm-clearall','value'=>'confirm','class'=>'hide jshide  btn btn-default btn-lg  col-xs-4'));
         $_clearall.=CHtml::label(gT("Are you sure you want to clear all your responses?"),'confirm-clearall',array('class'=>'hide jshide  btn btn-default btn-lg  col-xs-4'));
 
-        $_clearalllinks = '<li><a href="#" id="clearallbtnlink">'.gT("Exit and clear survey").'</a></li>';
+        $_clearalllinks = '<li><a href="#" id="clearallbtnlink" onClick="clearAll();">'.gT("Exit and clear survey").'</a></li>';
     }
     else
     {
@@ -837,8 +837,8 @@ function doHtmlSaveLinks($move="")
 
     if($thissurvey['allowsave'] == "Y")
     {
-        $sLoadButton = '<li><a href="#" id="loadallbtnlink" >'.gT("Load unfinished survey").'</a></li>';
-        $sSaveButton = '<li><a href="#" id="saveallbtnlink" >'.gT("Resume later").'</a></li>';
+        $sLoadButton = '<li><a href="#" id="loadallbtnlink" onClick="loadAll();" >'.gT("Load unfinished survey").'</a></li>';
+        $sSaveButton = '<li><a href="#" id="saveallbtnlink" onClick="saveAll();" >'.gT("Resume later").'</a></li>';
     }
     else
     {
@@ -861,7 +861,7 @@ function doHtmlSaveLinks($move="")
         {
             $sSaveAllButtons .= $sLoadButton;
         }
-        $sSaveAllButtons .= '<li><a href="#" id="saveallbtnlink" '.$aHtmlOptionsSaveall['disabled'].' >'.gT("Resume later").'</a></li>';
+        $sSaveAllButtons .= '<li><a href="#" id="saveallbtnlink" '.$aHtmlOptionsSaveall['disabled'].' onClick="saveAll();" >'.gT("Resume later").'</a></li>';
     }
     elseif (!$iSessionStep) //Welcome page, show load (but not save)
     {
