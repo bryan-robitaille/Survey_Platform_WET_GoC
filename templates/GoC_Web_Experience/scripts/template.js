@@ -334,5 +334,5 @@ window["wb-data-ajax"] = {
 	}
 };
 
-})( jQuery, wb );
+});
 
