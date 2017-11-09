@@ -461,15 +461,13 @@ class UserAction extends Survey_Common_Action
 
         $iUserID=(int)App()->request->getPost('uid');
         // A user may not modify his own permissions
-        if (Yii::app()->session['loginID']==$iUserID) {
+        if (Yii::app()->session['loginID'] == $iUserID) {
             Yii::app()->setFlashMessage(gT("You are not allowed to edit your own user permissions."),"error");
             $this->getController()->redirect(array("admin/user/sa/index"));
         }
-        // Can not update initial superadmin permissions (with findByAttributes : found the first user without parent)
-        $oInitialAdmin = User::model()->findByAttributes(array('parent_id' => 0));
-        if ($oInitialAdmin && $oInitialAdmin->uid == $iUserID) // it's the original superadmin !!!
-        {
-            Yii::app()->setFlashMessage(gT("Initial Superadmin permissions cannot be updated!"),'error');
+        // Can not update forced superadmin  rights
+        if ( Permission::isForcedSuperAdmin($iUserID) ) {
+            Yii::app()->setFlashMessage(gT("The permissions of this superadmin cannot be updated!"),'error');
             $this->getController()->redirect(array("admin/user/sa/index"));
         }
         $aBaseUserPermissions = Permission::model()->getGlobalBasePermissions();
@@ -477,19 +475,13 @@ class UserAction extends Survey_Common_Action
         $aPermissions=array();
         foreach ($aBaseUserPermissions as $sPermissionKey=>$aCRUDPermissions)
         {
-            foreach ($aCRUDPermissions as $sCRUDKey=>$CRUDValue)
-            {
-                if (!in_array($sCRUDKey,array('create','read','update','delete','import','export'))) continue;
-
-                if ($CRUDValue)
-                {
-                    if(isset($_POST["perm_{$sPermissionKey}_{$sCRUDKey}"])){
-                        $aPermissions[$sPermissionKey][$sCRUDKey]=1;
-                    }
-                    else
-                    {
-                        $aPermissions[$sPermissionKey][$sCRUDKey]=0;
-                    }
+            foreach ($aCRUDPermissions as $sCRUDKey=>$CRUDValue) {
+                if (!in_array($sCRUDKey,array('create','read','update','delete','import','export'))) {
+                    continue;
+                }
+                if ($CRUDValue) {
+                    $sPermissionPostValue=Yii::app()->getRequest()->getPost("perm_{$sPermissionKey}_{$sCRUDKey}",'');
+                    $aPermissions[$sPermissionKey][$sCRUDKey] = $sPermissionPostValue=='on'?1:0;
                 }
             }
         }
@@ -510,30 +502,20 @@ class UserAction extends Survey_Common_Action
     public function setuserpermissions()
     {
         $iUserID = (int) Yii::app()->request->getPost('uid');
-
-        // Can not update initial superadmin permissions (with findByAttributes : found the first user without parent)
-        $oInitialAdmin = User::model()->findByAttributes(array('parent_id' => 0));
-
-        if ($oInitialAdmin && $oInitialAdmin->uid == $iUserID) // Trying to update the original superadmin !!!
-        {
-            Yii::app()->setFlashMessage(gT("Initial Superadmin permissions cannot be updated!"),'error');
-            $this->getController()->redirect(array("admin/user/sa/index"));
-        }
-
         $aBaseUserPermissions = Permission::model()->getGlobalBasePermissions();
-        if ($iUserID)
-        {
-            //Never update 1st admin
-            if(Permission::model()->hasGlobalPermission('superadmin','read'))
+        if ($iUserID) {
+            //Only super admin (read) can update other user
+            if(Permission::model()->hasGlobalPermission('superadmin','read')) {
                 $oUser = User::model()->findByAttributes(array('uid' => $iUserID));
-            else
+            } else {
                 $oUser = User::model()->findByAttributes(array('uid' => $iUserID, 'parent_id' => Yii::app()->session['loginID']));
+            }
         }
 
         // Check permissions
         $aBasePermissions=Permission::model()->getGlobalBasePermissions();
-        if (!Permission::model()->hasGlobalPermission('superadmin','read')) // if not superadmin filter the available permissions as no admin may give more permissions than he owns
-        {
+        if (!Permission::model()->hasGlobalPermission('superadmin','read')) {
+             // if not superadmin filter the available permissions as no admin may give more permissions than he owns
             Yii::app()->session['flashmessage'] = gT("Note: You can only give limited permissions to other users because your own permissions are limited, too.");
             $aFilteredPermissions=array();
             foreach  ($aBasePermissions as $PermissionName=>$aPermission)
@@ -543,24 +525,20 @@ class UserAction extends Survey_Common_Action
                     if ($sPermissionKey!='title' && $sPermissionKey!='img' && !Permission::model()->hasGlobalPermission($PermissionName, $sPermissionKey)) $sPermissionValue=false;
                 }
                 // Only show a row for that permission if there is at least one permission he may give to other users
-                if ($aPermission['create'] || $aPermission['read'] || $aPermission['update'] || $aPermission['delete'] || $aPermission['import'] || $aPermission['export'])
-                {
+                if ($aPermission['create'] || $aPermission['read'] || $aPermission['update'] || $aPermission['delete'] || $aPermission['import'] || $aPermission['export']) {
                     $aFilteredPermissions[$PermissionName]=$aPermission;
                 }
             }
             $aBasePermissions=$aFilteredPermissions;
         }
 
-        if(isset($oUser))
-        {
+        if(isset($oUser)) {
             if ( $oUser  && (Permission::model()->hasGlobalPermission('superadmin','read') || Permission::model()->hasGlobalPermission('users','update') &&  Yii::app()->session['loginID'] != $iUserID) )
             {
-                // Only the original superadmin (UID 1) may create superadmins
-                if (Yii::app()->session['loginID']!=1)
-                {
+                // Show superadmin right if create is set (review for delete too ?)
+                if (!Permission::model()->hasGlobalPermission('superadmin','create') ) {
                     unset($aBasePermissions['superadmin']);
                 }
-
                 $aData = array();
                 $aData['aBasePermissions'] = $aBasePermissions;
                 $aData['oUser'] = $oUser;
@@ -668,6 +646,7 @@ class UserAction extends Survey_Common_Action
     {
         // Save Data
         if (Yii::app()->request->getPost("action")) {
+            $oUserModel = User::model()->findByPk(Yii::app()->session['loginID']);
             $aData = array(
             'lang' => Yii::app()->request->getPost('lang'),
             'dateformat' => Yii::app()->request->getPost('dateformat'),
@@ -677,18 +656,34 @@ class UserAction extends Survey_Common_Action
             'full_name'=> Yii::app()->request->getPost('fullname'),
             'email'=> Yii::app()->request->getPost('email')
             );
+
             if (Yii::app()->request->getPost('password')!='' && !Yii::app()->getConfig('demoMode'))
             {
-                if (Yii::app()->request->getPost('password')==Yii::app()->request->getPost('repeatpassword'))
-                {
+                $oldPassword = Yii::app()->request->getPost('oldpassword');
+                $oldPasswordHash = hash( "sha256", $oldPassword);
+                $newPassword = Yii::app()->request->getPost('password');
+                $repeatPassword = Yii::app()->request->getPost('repeatpassword');
+                
+                //First test if old and new password are identical => This is not allowed
+                if(trim($oldPassword) === trim($newPassword)){
+                    Yii::app()->setFlashMessage(gT("Your new password was not saved because it matches the old password."),'error');
+
+                //Then test the new password and the repeat password for identity
+                } else if(trim($newPassword) !== trim($repeatPassword)){
+                    Yii::app()->setFlashMessage(gT("Your new password was not saved because the passwords did not match."),'error');
+
+                //Now check if the old password matches the old password saved
+                } else if($oUserModel->password !== $oldPasswordHash){
+                    Yii::app()->setFlashMessage(gT("Your new password was not saved because the old password was wrong."),'error');
+                
+                //At last if everything worked set the new password
+                } else {
                     $aData['password']=hash( "sha256",Yii::app()->request->getPost('password'));
                 }
-                else
-                {
-                    Yii::app()->setFlashMessage(gT("Your new password was not saved because the passwords did not match."),'error');
-                }
             }
-            $uresult = User::model()->updateByPk(Yii::app()->session['loginID'], $aData);
+            
+            $oUserModel->setAttributes($aData);
+            $uresult = $oUserModel->save();
 
             if (Yii::app()->request->getPost('lang')=='auto')
             {

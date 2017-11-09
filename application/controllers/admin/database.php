@@ -152,17 +152,18 @@ class database extends Survey_Common_Action
             /* @todo : add it to upgrage DB system, and see for the lsa */
             if($sQuestionType=="R" && Survey::model()->findByPk($iSurveyID)->active=="Y")
             {
-                QuestionAttribute::model()->find(
+                $oQuestionAttributeMaxSubQuestions = QuestionAttribute::model()->find(
                     "qid = :qid AND attribute = 'max_subquestions'",
                     array(':qid' => $iQuestionID)
                 );
-
-                $answerCount=Answer::model()->countByAttributes(array('qid' => $iQuestionID,'language'=>Survey::model()->findByPk($iSurveyID)->language));
-                $oQuestionAttribute = new QuestionAttribute();
-                $oQuestionAttribute->qid = $iQuestionID;
-                $oQuestionAttribute->attribute = 'max_subquestions';
-                $oQuestionAttribute->value = $answerCount;
-                $oQuestionAttribute->save();
+                if(!$oQuestionAttributeMaxSubQuestions) {
+                    $answerCount=Answer::model()->countByAttributes(array('qid' => $iQuestionID,'language'=>Survey::model()->findByPk($iSurveyID)->language));
+                    $oQuestionAttributeMaxSubQuestions = new QuestionAttribute();
+                    $oQuestionAttributeMaxSubQuestions->qid = $iQuestionID;
+                    $oQuestionAttributeMaxSubQuestions->attribute = 'max_subquestions';
+                    $oQuestionAttributeMaxSubQuestions->value = $answerCount;
+                    $oQuestionAttributeMaxSubQuestions->save();
+                }
 
             }
 
@@ -777,14 +778,17 @@ class database extends Survey_Common_Action
             $criteria = new CDbCriteria;
             $criteria->compare('qid',$iQuestionID);
             $validAttributes=\ls\helpers\questionHelper::getQuestionAttributesSettings($sQuestionType);
-            foreach ($validAttributes as  $validAttribute)
-            {
+            foreach ($validAttributes as  $validAttribute) {
                 $criteria->compare('attribute', '<>'.$validAttribute['name']);
             }
             QuestionAttribute::model()->deleteAll($criteria);
             $aLanguages=array_merge(array(Survey::model()->findByPk($iSurveyID)->language),Survey::model()->findByPk($iSurveyID)->additionalLanguages);
             foreach ($validAttributes as $validAttribute)
             {
+                /* Readonly attribute : disable save */
+                if($validAttribute['readonly'] || ($validAttribute['readonly_when_active'] && Survey::model()->findByPk($iSurveyID)->getIsActive()) ) {
+                    continue;
+                }
                 if ($validAttribute['i18n'])
                 {
                     /* Delete invalid language : not needed but cleaner */
