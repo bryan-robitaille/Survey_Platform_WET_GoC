@@ -32,8 +32,8 @@
 								rel="external">Departments</a></li>
 								<li id="wb-lng"><h2>Language selection</h2>
 									<ul class="list-inline">						
-     									 <li><a href="?lang=en_US" title="English - US (English)">EN</a></li>
-     									 <li><a href="?lang=fr" title="français, langue française (French)">FR</a></li>
+     									 <li><a href="#" onclick="this.href = UpdateQueryString('lang','en')" title="English - US (English)">EN</a></li>
+     									 <li><a href="#" onclick="this.href = UpdateQueryString('lang','fr')" title="français, langue française (French)">FR</a></li>
 									</ul>
 								</li>
 						</ul>
